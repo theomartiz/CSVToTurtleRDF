@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  api:
+    build: semantic-processing
+    volumes:
+      - ./config.ini:/code/config.ini
+    ports:
+      - "80:80"
+  front:
+    build: semantic-ui
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
