@@ -6,10 +6,10 @@ const FormSchema = Yup.object().shape({
         .required("Champs requis"),
     firstLine: Yup.number()
         .min(1)
-        .moreThan(Yup.ref('titleLine'), "La première ligne de donnée doit être supérieur à la ligne de titres.")
+        .moreThan(Yup.ref('titleLine'), "La première ligne de données doit être supérieure à la ligne de titres.")
         .required("Champs requis"),
     lastLine: Yup.number()
-        .moreThan(Yup.ref('lastLine'), "La dernière ligne de donnée doit être supérieur à la première."),
+        .moreThan(Yup.ref('firstLine'), "La dernière ligne de données doit être supérieure à la première."),
     separator: Yup.string().required("Champs requis"),
     prefixData: Yup.string().required("Champs requis"),
     prefixPredicate: Yup.string().required("Champs requis"),
