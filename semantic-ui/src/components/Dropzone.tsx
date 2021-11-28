@@ -13,7 +13,7 @@ const Dropzone: React.FC<DropzoneProps> = ({handleSetFile}) => {
 
     const {getRootProps, getInputProps, isDragActive, isDragAccept} = useDropzone({
         onDrop,
-        accept: [".csv, text/csv, application/vnd.ms-excel, application/csv, text/x-csv, application/x-csv, text/comma-separated-values, text/x-comma-separated-values"],
+        accept: [".csv, text/csv, application/vnd.ms-excel, application/csv, text/x-csv, application/x-csv, text/comma-separated-values, text/x-comma-separated-values, text/plain"],
         multiple: false
     });
 
