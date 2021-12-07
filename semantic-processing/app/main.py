@@ -45,7 +45,6 @@ async def process_file(
         last_line = lastLine
         prefix_predicate = prefixPredicate
         prefix_data = prefixData
-        raise Exception('spam', 'eggs')
         # If no fileName precised by the user, we take the name of the file and remove the extension
         file_name = os.path.splitext(file.filename)[0] if fileName is None else fileName
 
