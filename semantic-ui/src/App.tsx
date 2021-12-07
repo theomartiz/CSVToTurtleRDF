@@ -4,9 +4,11 @@ import Dropzone from "./components/Dropzone";
 import CSVForm from "./components/CSVForm";
 import Popup from "reactjs-popup";
 import ResultViewer from "./components/ResultViewer";
+import ClosingAlert from "./components/Alert";
 
 function App() {
     const [file, setFile] = useState<File>();
+    const [showAlert, setShowAlert] = useState("");
     const [sourceText, setSourceText] = useState("");
     const [result, setResult] = useState<string>();
     const [fileName, setFileName] = useState<string>();
@@ -25,9 +27,12 @@ function App() {
     return (
         <div className="app">
             <Header/>
+            <div className="max-w-xl mx-auto pt-28">
+                <ClosingAlert showAlert={showAlert} setShowAlert={setShowAlert} />
+            </div>
             {result ?
                 <ResultViewer fileName={fileName} result={result} handleReset={handleResetResult}/> :
-                <section className="max-w-xl mx-auto pt-20">
+                <section className="max-w-xl mx-auto pt-12">
                     <Dropzone handleSetFile={handleSetFile}/>
                     <div className="flex items-center px-10 my-2 justify-center">
                         <p className="font-medium">Fichier: <span className="font-light">{file ? file.name : "Aucun fichier"}</span></p>
@@ -41,7 +46,7 @@ function App() {
                             </div>
                         </Popup>}
                     </div>
-                    <CSVForm file={file} setResult={setResult} fileName={fileName} setFileName={setFileName}/>
+                    <CSVForm file={file} setResult={setResult} fileName={fileName} setFileName={setFileName} setShowAlert={setShowAlert}/>
                 </section>
             }
         </div>
